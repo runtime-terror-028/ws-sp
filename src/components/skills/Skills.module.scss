@@ -1,0 +1,67 @@
+@use "../../theme" as *;
+
+$skills-card-height: calc(100vh * 0.7);
+$skills-card-width: calc(100vw * 0.9);
+
+.skills_container {
+  @include container;
+  .skills_card {
+    @include containerCard(
+      $width: $skills-card-width,
+      $height: $skills-card-height
+    );
+    @include glassEffect;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .skills_text_container {
+      display: flex;
+      flex-direction: column;
+      padding-top: $skills-card-height * 0.2;
+      gap: 25px;
+      color: white;
+      height: 100%;
+      width: 55%;
+
+      .skills_text_heading {
+        font-family: "Varela Round", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 35px;
+        margin: 0 35px;
+        width: fit-content;
+        border-bottom: solid ;
+      }
+      .skills_text_content {
+        font-family: "Varela Round", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 15px;
+        padding: 0 35px;
+        text-align: justify;
+      }
+    }
+    .skills_icons_container {
+@include iconCardContainer;
+
+
+      .skills_icon {
+        @include iconCard;
+        @include glassEffect(
+          $background_color: rgba(120, 120, 120, 0.313),
+          $box_shadow: 0 4px 30px rgba(0, 0, 0, 0.361),
+          $backdrop_filter: blur(6.8px),
+          $webkit-backdrop_filter: blur(6.8px)
+        );
+
+        .icon_logo {
+          @include iconLogo;
+        }
+        .icon_title {
+          @include iconTitle;
+        }
+      }
+    }
+  }
+}

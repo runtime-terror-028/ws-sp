@@ -1,0 +1,96 @@
+// Color var
+$color-black: black;
+$color-white: white;
+$color-yellow: #d2ff21;
+$color-temp-gray: gray;
+
+@mixin dev() {
+  background-color: #fffb00;
+  border: solid 2px red;
+}
+
+@mixin theme() {
+  background: $theme-bg;
+  color: $theme-font-color;
+}
+
+@mixin container($height: 100vh, $width: 100%) {
+  z-index: 10;
+  position: relative;
+  height: $height;
+  width: $width;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+@mixin containerCard(
+  $padding: 25px,
+  $border_radius: 16px,
+  $width: auto,
+  $height: auto,
+  $pointer_events: auto
+) {
+  padding: $padding;
+  border-radius: $border_radius;
+  width: $width;
+  height: $height;
+  pointer-events: $pointer_events;
+}
+
+@mixin glassEffect(
+  $background_color: rgba(77, 76, 76, 0.053),
+  $box_shadow: 0 4px 30px rgba(0, 0, 0, 0.361),
+  $backdrop_filter: blur(6.8px),
+  $webkit-backdrop_filter: blur(6.8px)
+) {
+  background: $background_color;
+  box-shadow: $box_shadow;
+  backdrop-filter: $backdrop_filter;
+  -webkit-backdrop-filter: $webkit-backdrop_filter;
+}
+
+@mixin iconCardContainer() {
+  height: fit-content;
+  width: 45%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 15px;
+  border-radius: 15px;
+  padding: 5px 25px;
+}
+
+@mixin iconCard() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 13px;
+  height: 80px;
+  width: 60px;
+  border-radius: 5px;
+  transition: all ease-in-out 0.5s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+
+
+@mixin iconLogo($height: 50px, $width: 50px) {
+  height: $height;
+  width: $width;
+}
+
+@mixin iconTitle() {
+  color: white;
+  font-family: "Varela Round", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+}

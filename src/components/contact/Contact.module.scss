@@ -1,0 +1,88 @@
+@use "../../theme" as *;
+
+$contact-width: calc(100vw * 0.9);
+$contact-height: calc(100vh * 0.9);
+
+.contact_container {
+  @include container;
+
+  .contact_card {
+    @include containerCard($width: $contact-width, $height: $contact-height);
+    @include glassEffect;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    .contact_image_container {
+      padding: 35px;
+      margin: 0 0 0 50px;
+        img {
+        height: 300px;
+        width: 300px;
+        border-radius: 15px;
+      }
+    }
+    .contact_text_container {
+      color: white;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 25px;
+      .contact_text_heading {
+        font-family: "Varela Round", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 35px;
+        align-self: center;
+        border-bottom: solid;
+      }
+      .contact_icons_container {
+        @include iconCardContainer;
+        align-self: center;
+        gap: 25px;
+        margin: 50px 150px;
+        height: fit-content;
+        .contact_icon {
+          @include iconCard;
+          @include glassEffect(
+            $background_color: rgba(120, 120, 120, 0.313),
+            $box_shadow: 0 4px 30px rgba(0, 0, 0, 0.361),
+            $backdrop_filter: blur(6.8px),
+            $webkit-backdrop_filter: blur(6.8px)
+          );
+
+          /* Gradient Background */
+          background: linear-gradient(45deg, var(--g1), var(--g2));
+          background-size: 200% 200%;
+
+          /* Gradient Animation */
+          animation: gradientAnimation 5s ease infinite;
+
+          .icon_logo {
+            width: 50px;
+            height: 50px;
+          }
+          .icon_title {
+            @include iconTitle;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

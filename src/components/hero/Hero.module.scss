@@ -1,0 +1,60 @@
+@use "../../theme" as *;
+
+$hero-width: calc(100vw * 0.9);
+$hero-height: calc(100vh * 0.9);
+
+.hero_container {
+ @include container;
+
+  .hero_card {
+    @include containerCard(
+      $width: $hero-width,
+      $height: $hero-height
+      );
+    @include glassEffect;
+    display: flex;
+    align-items: center;
+
+    .hero_image_container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      img {
+        height: 300px;
+        width: 300px;
+        border-radius: 15px;
+      }
+    }
+
+    .hero_text_container {
+      color: white;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .hero_text_name {
+        span {
+          font-family: "Kode Mono", monospace;
+          font-optical-sizing: auto;
+          font-weight: 500;
+          font-style: normal;
+          font-size: 45px;
+          color: rgb(166, 0, 255);
+        }
+      }
+      .hero_text_profession {
+        color: white;
+        font-family: "Doto", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 18px;
+      }
+    }
+  }
+}
